@@ -5,7 +5,7 @@
   * @version V1.0
   * @date    May-2020
   * @brief   This file contains the type definition of data structures and function
-  *			 		 prototypes for implementation the floating point P/I/D controllers.
+  *	     prototypes for implementation the floating point P/I/D controllers.
   ***********************************************************************************
   * @license
   *
@@ -37,179 +37,179 @@
 #define __FP_PID_H__
 
 #ifdef __cplusplus
-	extern "C" {
+extern "C" {
 #endif
 
 /* Includes -----------------------------------------------------------------------*/
 /* Exported types -----------------------------------------------------------------*/
 
 /** 
-  * @brief	"Floating point P Controller Module" data structure
+  * @brief "Floating point P Controller Module" data structure
   */ 
 typedef struct sP
 {
 // Inputs:
-	float fIn;										// Controller's input
-	float fUpOutLim;							// Controller's output upper limit
-	float fLowOutLim;							// Controller's output lower limit
-	float fKp;										// Proportional coefficient value
+	float fIn;			// Controller's input
+	float fUpOutLim;		// Controller's output upper limit
+	float fLowOutLim;		// Controller's output lower limit
+	float fKp;			// Proportional coefficient value
 // Outputs:
-	float fOut;										// Controller's output
+	float fOut;			// Controller's output
 // Functions:
 	void  (*m_calc)(struct sP*);	// Pointer to controller's out calculator
-	void  (*m_rst)(struct sP*);		// Pointer to controller's reset function
+	void  (*m_rst)(struct sP*);	// Pointer to controller's reset function
 } tP;
 
 /** 
-  * @brief	"Floating point PI Controller Module" data structure
+  * @brief "Floating point PI Controller Module" data structure
   */ 
 typedef struct sPI
 {
 // Inputs:
-	float fDtSec;									// Discretization time, Sec
-	float fIn;										// Controller's input
-	float fKp;										// Proportional coefficient value
-	float fKi;										// Integral coefficient value
-	float fUpOutLim;							// Controller's output upper limit
-	float fLowOutLim;							// Controller's output lower limit
+	float fDtSec;			// Discretization time, Sec
+	float fIn;			// Controller's input
+	float fKp;			// Proportional coefficient value
+	float fKi;			// Integral coefficient value
+	float fUpOutLim;		// Controller's output upper limit
+	float fLowOutLim;		// Controller's output lower limit
 // Internal variables:	
-	float fPout;									// Proportional link's output
-	float fIout;									// Integral link's output
-	float fIprevIn;								// Integral link's previous input
-	float fIprevOut;							// Integral link's previous output
-																// Outputs:
-	float fOut;										// Controller's output
+	float fPout;			// Proportional link's output
+	float fIout;			// Integral link's output
+	float fIprevIn;			// Integral link's previous input
+	float fIprevOut;		// Integral link's previous output
+// Outputs:
+	float fOut;			// Controller's output
 // Functions:
 	void  (*m_calc)(struct sPI*);	// Pointer to controller's out calculator
 	void  (*m_rst)(struct sPI*);	// Pointer to controller's reset function
 } tPI;
 
 /** 
-  * @brief	"Floating point PD Controller Module" data structure
+  * @brief "Floating point PD Controller Module" data structure
   */ 
 typedef struct sPD
 {
 // Inputs:
-	float fDtSec;									// Discretization time, Sec
-	float fIn;										// Controller's input
-	float fKp;										// Proportional coefficient value
-	float fKd;										// Derivative coefficient value
-	float fUpOutLim;							// Controller's output upper limit
-	float fLowOutLim;							// Controller's output lower limit
+	float fDtSec;			// Discretization time, Sec
+	float fIn;			// Controller's input
+	float fKp;			// Proportional coefficient value
+	float fKd;			// Derivative coefficient value
+	float fUpOutLim;		// Controller's output upper limit
+	float fLowOutLim;		// Controller's output lower limit
 // Internal variables:	
-	float fPout;									// Proportional link's output
-	float fDout;									// Derivative link's output
-	float fDprevIn;								// Derivative link's previous input
-	float fDprevOut;							// Derivative link's previous output
+	float fPout;			// Proportional link's output
+	float fDout;			// Derivative link's output
+	float fDprevIn;			// Derivative link's previous input
+	float fDprevOut;		// Derivative link's previous output
 // Outputs:
-	float fOut;										// Controller's output
+	float fOut;			// Controller's output
 // Functions:
 	void  (*m_calc)(struct sPD*);	// Pointer to controller's out calculator
 	void  (*m_rst)(struct sPD*);	// Pointer to controller's reset function
 } tPD;
 
 /** 
-  * @brief	"Floating point PID Controller Module" data structure
+  * @brief "Floating point PID Controller Module" data structure
   */ 
 typedef struct sPID
 {
 // Inputs:
-	float fDtSec;									// Discretization time, Sec
-	float fIn;										// Controller's input
-	float fKp;										// Proportional coefficient value
-	float fKi;										// Integral coefficient value
-	float fKd;										// Derivative coefficient value
-	float fUpOutLim;							// Controller's output upper limit
-	float fLowOutLim;							// Controller's output lower limit
+	float fDtSec;			// Discretization time, Sec
+	float fIn;			// Controller's input
+	float fKp;			// Proportional coefficient value
+	float fKi;			// Integral coefficient value
+	float fKd;			// Derivative coefficient value
+	float fUpOutLim;		// Controller's output upper limit
+	float fLowOutLim;		// Controller's output lower limit
 // Internal variables:
-	float fPout;									// Proportional link's output
-	float fIout;									// Integral link's output
-	float fDout;									// Derivative link's output
-	float fIprevIn;								// Integral link's previous input
-	float fIprevOut;							// Integral link's previous output
-	float fDprevIn;								// Derivative link's previous input
-	float fDprevOut;							// Derivative link's previous output
+	float fPout;			// Proportional link's output
+	float fIout;			// Integral link's output
+	float fDout;			// Derivative link's output
+	float fIprevIn;			// Integral link's previous input
+	float fIprevOut;		// Integral link's previous output
+	float fDprevIn;			// Derivative link's previous input
+	float fDprevOut;		// Derivative link's previous output
 // Outputs:
-	float fOut;										// Controller's output
+	float fOut;			// Controller's output
 // Functions:
-	void  (*m_calc)(struct sPID*);// Pointer to controller's out calculator
+	void  (*m_calc)(struct sPID*);	// Pointer to controller's out calculator
 	void  (*m_rst)(struct sPID*);	// Pointer to controller's reset function
 } tPID;
 
 /* Exported constants -------------------------------------------------------------*/
 
 /** 
-  * @brief	Initialization constant with defaults for user variables with "tP" type
+  * @brief Initialization constant with defaults for user variables with "tP" type
   */
-#define P_DEFAULTS {						\
-	.fIn				= 0.0f,						\
-	.fOut				= 0.0f,						\
-	.fKp				= 0.0f,						\
-	.fUpOutLim	= 0.0f,						\
-	.fLowOutLim	= 0.0f,						\
-	.m_calc			= tP_calc,				\
-	.m_rst			= tP_rst					\
+#define P_DEFAULTS {			\
+	.fIn		= 0.0f,		\
+	.fOut		= 0.0f,		\
+	.fKp		= 0.0f,		\
+	.fUpOutLim	= 0.0f,		\
+	.fLowOutLim	= 0.0f,		\
+	.m_calc		= tP_calc,	\
+	.m_rst		= tP_rst	\
 }
 
 /** 
-  * @brief	Initialization constant with defaults for user variables with "tPI" type
+  * @brief Initialization constant with defaults for user variables with "tPI" type
   */
-#define PI_DEFAULTS {						\
-	.fDtSec			= 1.0f,						\
-	.fIn				= 0.0f,						\
-	.fOut				= 0.0f,						\
-	.fKp				= 0.0f,						\
-	.fKi				= 0.0f,						\
-	.fUpOutLim	= 0.0f,						\
-	.fLowOutLim	= 0.0f,						\
-	.fPout			= 0.0f,						\
-	.fIout			= 0.0f,						\
-	.fIprevIn		= 0.0f,						\
-	.fIprevOut	= 0.0f,						\
-	.m_calc			= tPI_calc,				\
-	.m_rst			= tPI_rst					\
+#define PI_DEFAULTS {			\
+	.fDtSec		= 1.0f,		\
+	.fIn		= 0.0f,		\
+	.fOut		= 0.0f,		\
+	.fKp		= 0.0f,		\
+	.fKi		= 0.0f,		\
+	.fUpOutLim	= 0.0f,		\
+	.fLowOutLim	= 0.0f,		\
+	.fPout		= 0.0f,		\
+	.fIout		= 0.0f,		\
+	.fIprevIn	= 0.0f,		\
+	.fIprevOut	= 0.0f,		\
+	.m_calc		= tPI_calc,	\
+	.m_rst		= tPI_rst	\
 }
 
 /** 
-  * @brief	Initialization constant with defaults for user variables with "tPD" type
+  * @brief Initialization constant with defaults for user variables with "tPD" type
   */
-#define PD_DEFAULTS {						\
-	.fDtSec			= 1.0f,						\
-	.fIn				= 0.0f,						\
-	.fOut				= 0.0f,						\
-	.fKp				= 0.0f,						\
-	.fKd				= 0.0f,						\
-	.fUpOutLim	= 0.0f,						\
-	.fLowOutLim	= 0.0f,						\
-	.fPout			= 0.0f,						\
-	.fDout			= 0.0f,						\
-	.fDprevIn		= 0.0f,						\
-	.fDprevOut	= 0.0f,						\
-	.m_calc			= tPD_calc,				\
-	.m_rst			= tPD_rst					\
+#define PD_DEFAULTS {			\
+	.fDtSec		= 1.0f,		\
+	.fIn		= 0.0f,		\
+	.fOut		= 0.0f,		\
+	.fKp		= 0.0f,		\
+	.fKd		= 0.0f,		\
+	.fUpOutLim	= 0.0f,		\
+	.fLowOutLim	= 0.0f,		\
+	.fPout		= 0.0f,		\
+	.fDout		= 0.0f,		\
+	.fDprevIn	= 0.0f,		\
+	.fDprevOut	= 0.0f,		\
+	.m_calc		= tPD_calc,	\
+	.m_rst		= tPD_rst	\
 }
 
 /** 
-  * @brief	Initialization constant with defaults for user variables with "tPID" type
+  * @brief Initialization constant with defaults for user variables with "tPID" type
   */
-#define PID_DEFAULTS {					\
-	.fDtSec			= 1.0f,						\
-	.fIn				= 0.0f,						\
-	.fOut				= 0.0f,						\
-	.fKp				= 0.0f,						\
-	.fKi				= 0.0f,						\
-	.fKd				= 0.0f,						\
-	.fUpOutLim	= 0.0f,						\
-	.fLowOutLim	= 0.0f,						\
-	.fPout			= 0.0f,						\
-	.fIout			= 0.0f,						\
-	.fDout			= 0.0f,						\
-	.fIprevIn		= 0.0f,						\
-	.fIprevOut	= 0.0f,						\
-	.fDprevIn		= 0.0f,						\
-	.fDprevOut	= 0.0f,						\
-	.m_calc			= tPID_calc,			\
-	.m_rst			= tPID_rst				\
+#define PID_DEFAULTS {			\
+	.fDtSec		= 1.0f,		\
+	.fIn		= 0.0f,		\
+	.fOut		= 0.0f,		\
+	.fKp		= 0.0f,		\
+	.fKi		= 0.0f,		\
+	.fKd		= 0.0f,		\
+	.fUpOutLim	= 0.0f,		\
+	.fLowOutLim	= 0.0f,		\
+	.fPout		= 0.0f,		\
+	.fIout		= 0.0f,		\
+	.fDout		= 0.0f,		\
+	.fIprevIn	= 0.0f,		\
+	.fIprevOut	= 0.0f,		\
+	.fDprevIn	= 0.0f,		\
+	.fDprevOut	= 0.0f,		\
+	.m_calc		= tPID_calc,	\
+	.m_rst		= tPID_rst	\
 }
 	
 /* Exported macro -----------------------------------------------------------------*/
