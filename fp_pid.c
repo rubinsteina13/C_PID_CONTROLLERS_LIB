@@ -5,11 +5,11 @@
   * @version V1.0
   * @date    May-2020
   * @brief   This file provides firmware function for implementation the following
-  *			 		 types of floating point controllers:
-  *						+	proportional (P) controller;
-  *						+	proportional–integral (PI) controller;
-  *						+	proportional–derivative (PD) controller;
-  *						+	proportional–integral–derivative (PID) controller.
+  *	     types of floating point controllers:
+  *		+ proportional (P) controller;
+  *		+ proportionalâ€“integral (PI) controller;
+  *		+ proportionalâ€“derivative (PD) controller;
+  *		+ proportionalâ€“integralâ€“derivative (PID) controller.
   ***********************************************************************************
   * @license
   *
@@ -84,7 +84,8 @@ void tPI_calc(tPI* ptPI)
 	
 	ptPI->fPout = ptPI->fIn * ptPI->fKp;
 	
-	ptPI->fIout = ptPI->fIprevOut + 0.5f*ptPI->fDtSec*(ptPI->fPout*ptPI->fKi + ptPI->fIprevIn);
+	ptPI->fIout = ptPI->fIprevOut + 0.5f*ptPI->fDtSec*(
+			ptPI->fPout*ptPI->fKi + ptPI->fIprevIn);
 	ptPI->fIprevIn = ptPI->fPout;
 	ptPI->fIprevOut = ptPI->fIout;
 	
@@ -160,7 +161,8 @@ void tPID_calc(tPID* ptPID)
 	
 	ptPID->fPout = ptPID->fIn * ptPID->fKp;
 	
-	ptPID->fIout = ptPID->fIprevOut + 0.5f*ptPID->fDtSec*(ptPID->fPout*ptPID->fKi + ptPID->fIprevIn);
+	ptPID->fIout = ptPID->fIprevOut + 0.5f*ptPID->fDtSec*(
+			ptPID->fPout*ptPID->fKi + ptPID->fIprevIn);
 	ptPID->fIprevIn = ptPID->fPout;
 	ptPID->fIprevOut = ptPID->fIout;
 	
