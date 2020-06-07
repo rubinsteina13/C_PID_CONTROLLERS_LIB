@@ -31,7 +31,7 @@
 		sPI.fUpOutLim = 140.0f;   // set the PI-controller's output upper limit
 		sPI.fLowOutLim = -140.0f; // set the PI-controller's output lower limit
 		
-		// 3rd step: Next code must be executed every time with sPI.fDtSec period if a 
+		// 3rd step: Next code must be executed every time with sPI.fDtSec period when 
 		// new calculation of PI-controller's output is needed
 		sPI.fIn = MyInValue;      // set the new value of PI-controller's input
 		sPI.m_calc(&sPI);         // call the PI-controller's output calculation function
