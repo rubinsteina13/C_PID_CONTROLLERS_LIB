@@ -1,11 +1,12 @@
 # C-library with floating point P, PI, PD, PID-controllers implementation
 
-This embedded C-library provides the various types of P/I/D-controllers:
-  * Proportional (P) controller
+* This embedded C-library provides the various types of P/I/D-controllers:
+	* Proportional (P) controller
   *	Proportional–integral (PI) controller
   * Proportional–derivative (PD) controller
   *	Proportional–integral–derivative (PID) controller
- [More about P/I/D-controllers here.](https://en.wikipedia.org/wiki/PID_controller)
+ 
+* [More about P/I/D-controllers here.](https://en.wikipedia.org/wiki/PID_controller)
  
 * Project structure
   * README.md - current file
