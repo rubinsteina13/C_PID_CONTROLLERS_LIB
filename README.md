@@ -25,7 +25,7 @@
 		tPI sPI = PI_DEFAULTS;
 		
 		// 2nd step: do some settings
-		sPI.fDtSec = 0.0001f;     // set the discretization (sapmle) time
+		sPI.fDtSec = 0.0001f;     // set the discretization (sample) time
 		sPI.fKp = 0.1f;           // set the proportional coefficient
 		sPI.fKi = 0.01f;          // set the integral coefficient
 		sPI.fUpOutLim = 140.0f;   // set the PI-controller's output upper limit
