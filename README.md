@@ -33,7 +33,7 @@
 		
 		// 3rd step: Next code must be executed every time with sPI.fDtSec period if a 
 		// new calculation of PI-controller's output is needed
-		sPI.fIn = MyIn;           // set the new value of PI-controller's input
+		sPI.fIn = MyInValue;      // set the new value of PI-controller's input
 		sPI.m_calc(&sPI);         // call the PI-controller's output calculation function
 		MyOutValue = sPI.fOut;    // update MyOutValue variable
 		
